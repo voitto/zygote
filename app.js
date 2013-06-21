@@ -9,6 +9,7 @@
     port: 4444,
     dbname: 'javascriptly',
     dbuser: 'brian',
+    dbpass: '',
     dbhost: 'localhost',
     dbport: 5432
   });
