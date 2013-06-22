@@ -57,9 +57,8 @@
   })(app.Controller);
 
   app.get('/', function(req, res) {
-    var view;
     this.model = new Post;
-    return view = new Home(this.model, req, res);
+    return this.view = new Home(this.model, req, res);
   });
 
   app.post('/post/new', function(req, res) {
@@ -69,10 +68,9 @@
       return _this.fullBody += chunk.toString();
     });
     return req.on('end', function() {
-      var post;
       _this.data = JSON.parse(_this.fullBody);
       _this.model = new Post;
-      post = _this.model.create(_this.data);
+      _this.post = _this.model.create(_this.data);
       return res.end('ok');
     });
   });

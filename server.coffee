@@ -32,7 +32,7 @@ class Posts extends app.Controller
 
 app.get '/', ( req, res ) ->
   @model = new Post
-  view = new Home @model, req, res
+  @view = new Home @model, req, res
 
 app.post '/post/new', ( req, res ) ->
   @fullBody = '';
@@ -41,7 +41,7 @@ app.post '/post/new', ( req, res ) ->
   req.on 'end', =>
     @data = JSON.parse @fullBody
     @model = new Post
-    post = @model.create @data
+    @post = @model.create @data
     res.end 'ok'
 
 $('#post-save').click =>
