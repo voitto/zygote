@@ -19,7 +19,6 @@ Installation Commands:
 
 $ git clone git@github.com:voitto/zygote.git
 
-
 $ cd zygote
 
 [[[ edit the server.coffee file to add your own postgresql settings ]]]
