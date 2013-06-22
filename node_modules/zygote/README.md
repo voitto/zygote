@@ -7,7 +7,7 @@
 
 Requirements:
 
- -- Node.js + modules socket.io pg mustache jquery coffee-script
+ -- Node.js
  
  -- Postgresql
  
