@@ -60,6 +60,14 @@
     return view = new Home(this.model, req, res);
   });
 
+  $('#post-save').click(function() {
+    _this.model = new Post;
+    _this.model.save();
+    $('#post-title').val('');
+    $('.modal').removeClass('active');
+    return $('.modal-bg').remove();
+  });
+
   app.post('/post/new', function(req, res) {
     var _this = this;
     this.fullBody = '';
@@ -73,14 +81,6 @@
       post = _this.model.create(_this.data);
       return res.end('ok');
     });
-  });
-
-  $('#post-save').click(function() {
-    _this.model = new Post;
-    _this.model.save();
-    $('#post-title').val('');
-    $('.modal').removeClass('active');
-    return $('.modal-bg').remove();
   });
 
 }).call(this);

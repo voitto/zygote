@@ -30,6 +30,13 @@ app.get '/', ( req, res ) ->
   @model = new Post
   view = new Home @model, req, res
 
+$('#post-save').click =>
+  @model = new Post
+  @model.save()
+  $( '#post-title' ).val ''
+  $( '.modal' ).removeClass 'active'
+  $( '.modal-bg' ).remove()
+
 app.post '/post/new', ( req, res ) ->
   @fullBody = '';
   req.on 'data', (chunk) =>
@@ -40,10 +47,4 @@ app.post '/post/new', ( req, res ) ->
     post = @model.create @data
     res.end 'ok'
 
-$('#post-save').click =>
-  @model = new Post
-  @model.save()
-  $( '#post-title' ).val ''
-  $( '.modal' ).removeClass 'active'
-  $( '.modal-bg' ).remove()
 

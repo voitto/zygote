@@ -94,7 +94,6 @@ Model.prototype.save = function() {
     async: false,
     data: JSON.stringify(postdata),
     success: function (resp) {
-      alert("posted"+resp);
     }
   });
 }
